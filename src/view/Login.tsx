@@ -1,7 +1,7 @@
 import { FunctionComponent, useEffect } from "react";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 import { setToken, setRefreshToken } from '../redux/actions/spotifyAction'
-import axios from 'axios'
+//import axios from 'axios'
 import { Redirect } from "react-router";
 
 export const Login: FunctionComponent<any> = () => {
@@ -21,7 +21,7 @@ export const Login: FunctionComponent<any> = () => {
             /* console.log(access_token);
             console.log(refresh_token); */
         }
-    }, []);
+    }, [access_token, refresh_token]);
     return (
         access_token ? <Redirect to={{ pathname: '/' }} /> :
             <div className="App">

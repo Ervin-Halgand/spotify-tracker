@@ -34,7 +34,8 @@ export const Dashboard: FunctionComponent = () => {
             }
         });
     }
-        , [])
+    // eslint-disable-next-line
+        , [access_token])
     return (
         !access_token ? <Redirect to={{ pathname: '/login' }} /> :
             <div className="dashboard__root">

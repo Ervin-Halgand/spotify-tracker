@@ -1,0 +1,36 @@
+.list__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--card-item-bg-color);
+    margin-bottom: 2px;
+    position: relative;
+}
+
+.list__item::after {
+    content: '';
+    display: var(--display__line__title);
+    width: 1px;
+    height: 100%;
+    background: white;
+    right: 0px;
+    position: absolute;
+}
+
+.list__item__information {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.list__item__information__name, .list__item__information__subname {
+    font-weight: 600;
+    display: inline-block;
+}
+
+.list__item__information__subname {
+    color: #7A828F;
+    font-weight: 600;
+}

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bg-color: linear-gradient(132deg, #1c201b 0%, #141818 100%);
+    --card-bg-color: linear-gradient(to bottom, #374135 0%, #2f3938 100%);
+    --card-item-bg-color: linear-gradient(132deg, #293329 0%, #252d2c 100%);
+    --main-bg-color: linear-gradient(60deg, rgb(31, 40, 50) 0%, rgb(72, 75, 89) 100%);
+    --card-bg-color: linear-gradient(to top right, #2e3844 0%, #485563 100%);
+    --card-item-bg-color: #29323c;
+    --main-bg-color: linear-gradient(to bottom, rgb(40, 40, 40) 0%, rgb(53, 53, 53) 40%, rgb(18, 18, 18) 150%), linear-gradient(to top, rgba(255, 255, 255, 0.50) 0%, rgba(0, 0, 0, 0.35) 200%);
+    --card-bg-color: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.25) 200%);
+    --card-item-bg-color: #2c2c2c;
+    --main-bg-color: #121317;
+    --card-bg-color: #16181D;
+    --card-item-bg-color: #1b1f25;
+    --main-bg-color: #16181D;
+    --card-bg-color: linear-gradient(to top left, #1F1B21 0%, #1A1D29 100%);
+    --card-item-bg-color: #22222C;
+    --border: solid 1px #FFFFFF;
+    --display__line__title: block;
+    --line__title-color: #FFFFFF;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Baloo 2', cursive;
+    background: var(--main-bg-color);
+    color: white;
+}
+
+button {
+    transition: background .5s ease-in-out;
+}
+
+button:hover {
+    cursor: pointer;
+    background: #34CB7D;
+}

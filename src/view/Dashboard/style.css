@@ -1,0 +1,9 @@
+.dashboard__root {
+    padding: 0px 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .dashboard__root {
+        padding: 0px 10px 10px 10px;
+    }
+}

@@ -1,14 +1,18 @@
 import { AnyAction } from "redux";
-import { SET_REFRESH_TOKEN, SET_TOKEN } from "../constants/spotifyConstants";
+import {
+  CLEAR_STORE,
+  SET_REFRESH_TOKEN,
+  SET_TOKEN,
+} from "../constants/spotifyConstants";
 
 export interface SpotifyState {
-  access_token: string;
-  refresh_token: string;
+  access_token: string | null;
+  refresh_token: string | null;
 }
 
 let initialState: SpotifyState = {
-  access_token: "",
-  refresh_token: "",
+  access_token: localStorage.getItem("access_token"),
+  refresh_token: localStorage.getItem("refresh_token"),
 };
 
 export const reducer = (
@@ -20,6 +24,8 @@ export const reducer = (
       return { ...state, access_token: action.token };
     case SET_REFRESH_TOKEN:
       return { ...state, refresh_token: action.refresh_token };
+    case CLEAR_STORE:
+      return { ...state, refresh_token: "", access_token: "" };
     default:
       return state;
   }

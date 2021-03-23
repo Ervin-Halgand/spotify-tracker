@@ -1,0 +1,11 @@
+.card {
+    background: var(--card-bg-color);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}

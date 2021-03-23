@@ -1,0 +1,21 @@
+.select {
+    background: var(--card-item-bg-color);
+    border-radius: 10px;
+    border: var(--border);
+    color: white;
+    padding: 10px 15px;
+    transition: filter 0.3s ease-in-out;
+}
+
+.select:hover {
+    cursor: pointer;
+    filter: brightness(0.8);
+}
+
+.select:focus {
+    outline: none;
+}
+
+.select__option {
+    background: #27302B;
+}

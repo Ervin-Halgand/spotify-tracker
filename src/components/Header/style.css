@@ -1,9 +1,8 @@
 .header {
     display: grid;
-    padding-top: 10px;
     grid-template-columns: 4fr 1fr;
     grid-template-rows: 1fr;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     align-items: center;
 }
 
@@ -21,11 +20,24 @@
     -webkit-text-fill-color: transparent;
 }
 
+.header__info__title__animation {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+    animation: translate__to__X 1s ease-in-out forwards;
+}
+
+.header__info__logo__animation {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+    animation: translate__to__X 1s ease-in-out forwards;
+}
+
 .header__identity {
     border-radius: 10px;
     background: var(--card-bg-color);
     padding: 8px 10px;
     justify-content: space-between;
+    transition: background var(--transition__duration) ease-in-out;
 }
 
 .header__identity__avatar {
@@ -40,6 +52,7 @@
 }
 
 .header__identity__contact__name {
+    transition: color var(--transition__duration) ease-in-out;
     font-size: 24px;
     font-weight: 500;
     margin-bottom: -10px;
@@ -55,28 +68,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #5A5B66;
+    background: var(--card-item-bg-color);
     width: 39px;
     height: 40px;
     border-radius: 5px;
 }
 
-.header__identity__button__logoutImg {
-    filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(346deg) brightness(103%) contrast(101%);
+.header__identity__button__logoutImg, .header__info__theme__button__logo {
+    filter: var(--filter__color);
     margin-left: 3px;
+    transition: filter var(--transition__duration) ease-in-out;
 }
 
 .header__login {
     text-align-last: right;
+    z-index: 10;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header__login__button__logo {
+    margin-right: 5px;
 }
 
 .header__login__button {
-    color: white;
+    color: var(--text__color);
     font-size: 18px;
-    background: #5A5B66;
+    background: var(--card-item-bg-color);
     border: none;
-    padding: 10px 40px;
+    padding: 10px 20px;
     border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+    animation: translate__to__X 1s ease-in-out 3s forwards;
 }
 
 .header__login__button:focus {
@@ -100,5 +128,23 @@
     }
     .header__info {
         margin-bottom: 10px;
+        padding-top: 10px;
+    }
+    .header__info__theme__button {
+        margin-right: 0px;
+    }
+    .header__info__theme__button__logo {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@keyframes translate__to__X {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+        transform: translate3d(0, 0, 0);
     }
 }

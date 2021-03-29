@@ -1,0 +1,51 @@
+.loading {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--card-item-bg-color);
+}
+
+.loading::after {
+    overflow: hidden;
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    animation: loading 0.8s infinite;
+}
+
+/* Loading Animation */
+
+@keyframes loading {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.img-loader {
+    overflow: hidden;
+    width: 50px;
+    height: 20px;
+}
+
+.header__info__title__loading {
+    margin-left: 100px;
+    width: 100px;
+    height: 10px
+}
+
+.header__identity__contact__name__loading {
+    height: 20px;
+    width: 120px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.header__identity_contact__follower__loading {
+    height: 15px;
+    width: 80px;
+    border-radius: 10px;
+}

@@ -1,46 +1,30 @@
-import { spotifyGetUserProfile, spotifyRefreshToken } from '../../helpers/axios/Axios';
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { SpotifyState } from "../../redux/reducer";
+import { useHistory } from "react-router-dom";
+import { spotifyData } from '../../redux/reducer/spotifyReducer'
 import { Header } from '../../components/Header/Header';
-import { EXPIRED_TOKEN, INVALID_TOKEN } from '../../redux/constants/spotifyConstants';
-import { setToken } from '../../redux/actions/spotifyAction';
 import { DashboardLayout } from '../../components/Dashboard/Layout/DashboardLayout';
 import './style.css'
+import { fillSpotifyData } from '../../helpers/axios/InitializationDashboardData';
 
 export const Dashboard: FunctionComponent = () => {
-    const access_token = useSelector((state: SpotifyState) => state.access_token);
-    const refresh_token = useSelector((state: SpotifyState) => state.refresh_token);
-    const [userInformation, setUserInformation] = useState();
-    const [userInformationLoading, setUserInformationLoading] = useState<Boolean>(true);
+    const currentUser = useSelector((state: any) => state.userLogin);
+    const spotifyData: spotifyData = useSelector((state: any) => state.spotifyData);
+    const history = useHistory()
     useEffect(() => {
-        if (!access_token)
+        if (!currentUser.access_token) {
+            history.replace('/login');
             return;
-        setUserInformationLoading(true);
-        spotifyGetUserProfile(access_token).then(res => {
-            setUserInformation(res.data);
-            setUserInformationLoading(false);
-        }).catch(err => {
-            if (err.response.data.error.message === INVALID_TOKEN) {
-                localStorage.clear();
-                window.location.href = '/login';
-            }
-            else if (err.response.data.error.message === EXPIRED_TOKEN) {
-                spotifyRefreshToken(refresh_token).then((res) => {
-                    setToken(res.data.access_token);
-                    localStorage.setItem('access_token', res.data.access_token);
-                }).catch(err => console.error(err)).finally(() => setUserInformationLoading(false))
-            }
-        });
+        }
+        fillSpotifyData(currentUser.access_token, currentUser.refresh_token, history);
     }
-    // eslint-disable-next-line
-        , [access_token])
+        // eslint-disable-next-line
+        , []);
     return (
-        !access_token ? <Redirect to={{ pathname: '/login' }} /> :
+        (spotifyData.user) ?
             <div className="dashboard__root">
-                <Header user={userInformation} isLoading={userInformationLoading} />
-                <DashboardLayout access_token={access_token} />
-            </div>
+                <Header user={spotifyData.user.info} isLoading={spotifyData.user.isLoading} />
+                <DashboardLayout spotifyData={spotifyData} currentUser={currentUser} />
+            </div> : <div></div>
     )
 }

@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Polar } from "react-chartjs-2";
+import { useSelector } from "react-redux";
 import { option } from "./option"
+import { SkeletonPolarChart } from "./SkeletonPolar/SkeletonPolar";
 
 interface PolarChartProps {
     labels: string[] | undefined,
@@ -10,13 +12,53 @@ interface PolarChartProps {
 
 export const PolarChart = ({ labels, data, isLoading }: PolarChartProps) => {
     let chartReference: any;
+    const currentUser = useSelector((state: any) => state.userLogin);
+
     useEffect(() => {
-        if (chartReference) chartReference.chartInstance.update();
-    }, [data, chartReference])
+        if (currentUser.isDarkTheme) {
+            option.scale.ticks.fontColor = "#FFFFFF";
+            option.scale.pointLabels.fontColor = "#FFFFFF";
+            option.scale.gridLines.color = "rgba(255, 255, 255, 0.3)";
+            option.legend.labels.fontColor = "#FFFFFF";
+        }
+        else {
+            option.scale.ticks.fontColor = "#000000";
+            option.scale.pointLabels.fontColor = "#000000";
+            option.scale.gridLines.color = "rgba(0, 0, 0, 0.3)";
+            option.legend.labels.fontColor = "#000000";
+        }
+        // eslint-disable-next-line
+    }, [])
+
+    useEffect(() => {
+        if (currentUser.isDarkTheme && chartReference) {
+            option.scale.ticks.fontColor = "#FFFFFF";
+            option.scale.pointLabels.fontColor = "#FFFFFF";
+            option.scale.gridLines.color = "rgba(255, 255, 255, 0.3)";
+            option.legend.labels.fontColor = "#FFFFFF";
+            chartReference.chartInstance.options.scale.ticks.fontColor = "#FFFFFF"
+            chartReference.chartInstance.options.scale.pointLabels.fontColor = "#FFFFFF";
+            chartReference.chartInstance.options.scale.gridLines.color = "rgba(255, 255, 255, 0.3)";
+            chartReference.chartInstance.options.legend.labels.fontColor = "#FFFFFF";
+            chartReference.chartInstance.update();
+        }
+        else if (chartReference) {
+            option.scale.ticks.fontColor = "#000000";
+            option.scale.pointLabels.fontColor = "#000000";
+            option.scale.gridLines.color = "rgba(0, 0, 0, 0.3)";
+            option.legend.labels.fontColor = "#000000";
+            chartReference.chartInstance.options.scale.ticks.fontColor = "#000000"
+            chartReference.chartInstance.options.scale.pointLabels.fontColor = "#000000";
+            chartReference.chartInstance.options.scale.gridLines.color = "rgba(0, 0, 0, 0.3)";
+            chartReference.chartInstance.options.legend.labels.fontColor = "#000000";
+            chartReference.chartInstance.update();
+        }
+        // eslint-disable-next-line
+    }, [currentUser.isDarkTheme])
     return (
         <div>
             {
-                isLoading ? <div>Loading...</div> :
+                isLoading ? <SkeletonPolarChart /> :
                     <Polar ref={(reference) => chartReference = reference} options={option} data={{
                         labels: labels,
                         datasets: [{
@@ -48,6 +90,9 @@ export const PolarChart = ({ labels, data, isLoading }: PolarChartProps) => {
                             data: data
                         }]
                     }} />
+            }
+            {
+                (!isLoading && !data?.length) && <div className="nav__lenght">You haven't listened spotify enought</div>
             }
         </div>
     )

@@ -2,9 +2,12 @@
     background: var(--card-item-bg-color);
     border-radius: 10px;
     border: var(--border);
-    color: white;
     padding: 10px 15px;
-    transition: filter 0.3s ease-in-out;
+    transition: filter 0.3s ease-in-out, background var(--transition__duration) ease-in-out, color var(--transition__duration) ease-in-out;
+    color: var(--text__color);
+    font-size: 16px;
+    font-family: 'Baloo 2';
+    font-weight: 500;
 }
 
 .select:hover {
@@ -17,5 +20,5 @@
 }
 
 .select__option {
-    background: #27302B;
+    background: var(--card-bg-color);
 }

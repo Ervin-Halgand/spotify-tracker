@@ -1,37 +1,45 @@
-import logoSpotify from '../../images/spotify-logo.png'
-import logoLogout from '../../images/logout.png'
+import logoLogout from '../../assets/images/logout.png'
 import './style.css'
-import { clearStore } from "../../redux/actions/spotifyAction";
-import { SpotifyState } from '../../redux/reducer';
+import { clearStore, setTheme } from "../../redux/actions/spotifyAction";
+import { useHistory, useLocation } from 'react-router-dom'
+import { SkeletonHeader } from './SkeletonHeader/SkeletonHeader';
 import { useSelector } from 'react-redux';
+import { ToggleButton } from '../Dashboard/ToggleButton/ToggleButton';
 
 interface HeaderProps {
     user?: any,
-    isLoading?: Boolean
+    isLoading?: Boolean,
 }
 
 export const Header = ({ user, isLoading }: HeaderProps) => {
-    const access_token = useSelector((state: SpotifyState) => state.access_token);
-
+    const history = useHistory();
+    const darkTheme = useSelector((state: any) => state.userLogin.isDarkTheme);
+    const path = useLocation();
     return (
-        isLoading ? <div>Loading...</div> :
-            <div className="header">
-                <div className="header__info">
-                    <img width="88" height="88" className="header__info__logo" src={logoSpotify} alt="SpotifyLogo"></img>
-                    <h1 className="header__info__title">Spotify Tracker</h1>
-                </div>
-                {access_token ? <div className="header__identity">
+        <div className="header">
+            <div className="header__info">
+                <img width="88" height="88" className={`header__info__logo ${path.pathname !== '/' ? 'header__info__logo__animation' : ''}`} src={`${process.env.PUBLIC_URL}/images/spotify-logo.png`} alt="SpotifyLogo"></img>
+                <h1 className={`header__info__title ${path.pathname !== '/' ? 'header__info__title__animation' : ''}`}>Spotify Tracker</h1>
+                {path.pathname === '/' && <ToggleButton checkboxHandler={setTheme} isDarkTheme={darkTheme} />}
+            </div>
+            {(() => {
+                if (!user)
+                    return <div className="header__login"><a href={"http://localhost:8080/login"}><button className="header__login__button">
+                        <img width="30" height="30" className="header__login__button__logo" src={`${process.env.PUBLIC_URL}/images/spotify-logo.png`} alt="SpotifyLogo"></img>
+                        Login with Spotify</button></a></div>
+                if (isLoading)
+                    return <SkeletonHeader />
+                return <div className="header__identity">
                     <img width="44" height="44" className="header__identity__avatar" src={user?.images[0].url} alt="avatar"></img>
                     <div className="header__identity__contact">
                         <span className="header__identity__contact__name">{user?.display_name}</span>
                         <span className="header__identity_contact__follower">Follower : {user?.followers.total}</span>
                     </div>
-                    <button className="header__identity__button" onClick={() => { localStorage.clear(); clearStore(); }}>
+                    <button className="header__identity__button" onClick={() => { clearStore(); history.replace('/login') }}>
                         <img width="20" height="20" className="header__identity__button__logoutImg" src={logoLogout} alt="logout icon" />
                     </button>
-                </div> : <div className="header__login"><a href={"http://localhost:8080/login"}><button className="header__login__button">
-                    Login</button></a></div>}
-
-            </div>
+                </div>
+            })()}
+        </div >
     )
 }

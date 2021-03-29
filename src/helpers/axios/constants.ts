@@ -5,6 +5,7 @@ export const TOP_ARTISTS: string = "/me/top/artists";
 export const TRACKS: string = "/tracks?ids=";
 export const FOLLOWING_ARTIST: string = "/me/following?type=artist";
 export const SAVED_ALBUM: string = "/me/albums";
+export const GET_RECOMMANDATION: string = "/recommendations";
 
 export enum TimeRangeType {
     LONG = "long_term",

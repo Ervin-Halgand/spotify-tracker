@@ -1,19 +1,27 @@
 .nav {
-    height: 340px;
+    height: 290px;
     width: 100%;
-    overflow: hidden;
     overflow-y: scroll;
 }
 
-.nav::-webkit-scrollbar {
-    display: none;
+.nav>ul {
+    padding-right: 5px;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
+.nav::-webkit-scrollbar {
+    width: 5px;
+}
 
-.nav {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+.nav::-webkit-scrollbar-thumb {
+    background: #159642;
+}
+
+.nav::-webkit-scrollbar-track {
+    background: #5A5B66;
+}
+
+.nav__lenght {
+    text-align: center;
+    color: red;
+    font-weight: 500;
 }

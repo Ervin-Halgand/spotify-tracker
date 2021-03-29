@@ -1,7 +1,7 @@
 export const option = {
   scales: {
-    xAxes: [{ ticks: { fontColor: "#FFFFFF" } }],
-    yAxes: [{ ticks: { fontColor: "#FFFFFF" } }],
+    xAxes: [{ ticks: { fontColor: "#000000", fontSize: 14 } }],
+    yAxes: [{ ticks: { fontColor: "#000000" } }],
   },
   maintainAspectRatio: false,
   legend: { display: false },

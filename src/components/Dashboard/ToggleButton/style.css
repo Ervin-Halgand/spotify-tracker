@@ -1,0 +1,63 @@
+.label__checkBox {
+    width: 70px;
+    height: 30px;
+    background: var(--card-item-bg-color);
+    border-radius: 50px;
+    transition: background 1s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    margin-left: auto;
+    margin-right: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.label__checkBox__img__moon {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+}
+
+.label__checkBox__img__sun {
+    position: absolute;
+    left: 4.2%;
+    top: 50%;
+    transform: translate3d(0, -45%, 0);
+}
+
+.input__toggle {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.input__toggle:focus {
+    outline: none;
+    opacity: 1;
+}
+
+.input__toggle:checked+.slider {
+    transform: translate3d(calc(180% - 2px), -50%, 0px);
+}
+
+.slider {
+    position: absolute;
+    left: 0px;
+    height: 25px;
+    width: 25px;
+    top: 50%;
+    transform: translate3d(2px, -50%, 0px);
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 1s ease-in-out;
+}
+
+@keyframes sliderToLeft {
+    0% {
+        transform: translate(0%, 0);
+    }
+    100% {
+        transform: translate(100%, 0);
+    }
+}

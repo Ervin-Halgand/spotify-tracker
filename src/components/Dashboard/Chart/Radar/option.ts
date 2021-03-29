@@ -5,21 +5,20 @@ export const option = {
   scale: {
     ticks: {
       beginAtZero: true,
-      //maxTicksLimit: 10,
+      maxTicksLimit: 10,
       showLabelBackdrop: false,
-      fontColor: "#FFFFFF",
-      fontFamily: 'Baloo 2'
+      fontColor: "#000000",
+      fontSize: 14
     },
     pointLabels: {
-      fontColor: "#FFFFFF",
-      fontSize: "14",
-      fontFamily: 'Baloo 2'
+      fontColor: "#000000",
+      fontSize: 14,
     },
     gridLines: {
-      color: "rgba(255, 255, 255, 0.3)",
+      color: "rgba(0, 0, 0, 0.3)",
     },
     angleLines: {
-      color: "rgba(255, 255, 255, 0.3)",
+      color: "rgba(0, 0, 0, 0.3)",
     },
   },
 };

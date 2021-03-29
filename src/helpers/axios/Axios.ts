@@ -8,11 +8,12 @@ import {
   TRACKS,
   FOLLOWING_ARTIST,
   SAVED_ALBUM,
+  GET_RECOMMANDATION,
 } from "./constants";
 
 const Axios = axios.create({
   baseURL: BASE_URL,
-  timeout: 1000,
+  timeout: 10000,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
@@ -90,6 +91,30 @@ export const spotifyGetSavedAlbum = (
   return Axios.get(`${SAVED_ALBUM}${limit ? `?limit=${limit}` : ""}`, {
     headers: { Authorization: `Bearer ${access_token}` },
   });
+};
+
+export const spotifyGetRecommandation = (
+  access_token: string,
+  artists_seed: string[],
+  genres: string[],
+  tracks_seed: string[]
+): Promise<any> => {
+  return Axios.get(
+    `${GET_RECOMMANDATION}?market=US&seed_artists=${artists_seed
+      .toString()
+      .replaceAll(" ", "_")
+      .replaceAll(",", "%2C")}&seed_genres=${genres
+      .toString()
+      .replaceAll(" ", "_")
+      .replaceAll(",", "%2C")}&seed_tracks=${tracks_seed
+      .toString()
+      .replaceAll(" ", "_")
+      .replaceAll(",", "%2C")}&min_energy=0.4&min_popularity=50`,
+    {
+      headers: { Authorization: `Bearer ${access_token}` },
+      data: {},
+    }
+  );
 };
 
 export default Axios;

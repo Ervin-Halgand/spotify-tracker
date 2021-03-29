@@ -1,0 +1,48 @@
+.polar_chart_container {
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.polar_chart_labels_container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.polar_chart_label_container {
+    display: flex;
+}
+
+.polar_chart_label_box {
+    margin-right: 5px;
+    border-radius: 0px;
+    height: 10px;
+    width: 30px;
+    background-color: var(--main-bg-color);
+}
+
+.polar_chart_label_name {
+    margin-right: 30px;
+    height: 10px;
+    width: 60px;
+    background-color: var(--main-bg-color);
+}
+
+.polar_chart_radius {
+    height: 320px;
+    width: 320px;
+    border-radius: 50%;
+    background-color: var(--main-bg-color);
+}
+
+@media screen and (max-width: 1000px) {
+    .polar_chart_radius {
+        height: 170px;
+        width: 170px;
+    }
+    .polar_chart_container {
+        height: 171px;
+    }
+}

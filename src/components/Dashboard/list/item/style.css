@@ -6,6 +6,7 @@
     background: var(--card-item-bg-color);
     margin-bottom: 2px;
     position: relative;
+    transition: background var(--transition__duration) ease-in-out;
 }
 
 .list__item::after {
@@ -13,9 +14,9 @@
     display: var(--display__line__title);
     width: 1px;
     height: 100%;
-    background: white;
-    right: 0px;
+    background: var(--line__title-color);
     position: absolute;
+    transition: background var(--transition__duration) ease-in-out;
 }
 
 .list__item__information {
@@ -28,6 +29,10 @@
 .list__item__information__name, .list__item__information__subname {
     font-weight: 600;
     display: inline-block;
+}
+
+.list__item__information__name {
+    transition: color var(--transition__duration) ease-in-out;
 }
 
 .list__item__information__subname {

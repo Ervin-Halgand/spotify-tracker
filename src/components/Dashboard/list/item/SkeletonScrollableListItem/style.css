@@ -1,0 +1,8 @@
+.list__item_loading {
+    height: 59px;
+    margin-bottom: 2px;
+}
+
+li {
+    list-style-type: none;
+}

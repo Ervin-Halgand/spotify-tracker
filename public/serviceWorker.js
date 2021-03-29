@@ -10,6 +10,7 @@ this.addEventListener("install", (event) => {
                 '/static/js/vendors~main.chunk.js',
                 '/index.html',
                 '/login',
+                '/',
                 '/font/Baloo2-Bold.ttf',
                 '/font/Baloo2-ExtraBold.ttf',
                 '/font/Baloo2-Medium.ttf',
@@ -21,7 +22,9 @@ this.addEventListener("install", (event) => {
                 '/images/note-musics.svg',
                 '/images/icon-genre.svg',
                 '/images/icon-artist.svg',
-                '/images/icon-music.svg'
+                '/images/icon-music.svg',
+                '/images/android-chrome-192x192.png',
+                '/style.css',
             ])
         })
     )

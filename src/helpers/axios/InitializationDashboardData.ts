@@ -66,6 +66,7 @@ const getUserAndCheckToken = async (
               .finally(() => userIsLoading(false));
           })
           .catch(() => {
+            clearStore();
             notification("error", "Please loggin again", () =>
               history.replace("/login")
             );

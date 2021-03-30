@@ -45,7 +45,7 @@ export const BarChart = ({ labels, data, isLoading }: PolarChartProps) => {
         // eslint-disable-next-line
     }, [currentUser.isDarkTheme])
     return (
-        <div>
+        <article>
             {
                 isLoading ? <SkeletonBarChart /> :
                     <Bar
@@ -58,14 +58,13 @@ export const BarChart = ({ labels, data, isLoading }: PolarChartProps) => {
                                 data: data
                             }]
                         }}
-                        width={100}
-                        height={340}
+                        
                         options={option}
                     />
             }
             {
                 (!isLoading && !data?.length) && <div className="nav__lenght">You haven't listened spotify enought</div>
             }
-        </div>
+        </article>
     )
 }

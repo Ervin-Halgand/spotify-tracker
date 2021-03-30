@@ -1,4 +1,6 @@
 export const option = {
+  responsive: true,
+  maintainAspectRatio: false,
   legend: {
     position: "top",
     labels: { fontColor: "#000000", fontSize: 14 },

@@ -1,9 +1,10 @@
 export const option = {
+  responsive: true,
+  maintainAspectRatio: false,
   scales: {
     xAxes: [{ ticks: { fontColor: "#000000", fontSize: 14 } }],
     yAxes: [{ ticks: { fontColor: "#000000" } }],
   },
-  maintainAspectRatio: false,
   legend: { display: false },
   tooltips: {
     callbacks: {

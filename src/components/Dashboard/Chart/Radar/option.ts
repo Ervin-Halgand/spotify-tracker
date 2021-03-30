@@ -1,4 +1,6 @@
 export const option = {
+  responsive: true,
+  maintainAspectRatio: false,
   legend: {
     display: false,
   },

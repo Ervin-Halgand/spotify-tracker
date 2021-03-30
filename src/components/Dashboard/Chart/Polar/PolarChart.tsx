@@ -56,7 +56,7 @@ export const PolarChart = ({ labels, data, isLoading }: PolarChartProps) => {
         // eslint-disable-next-line
     }, [currentUser.isDarkTheme])
     return (
-        <div>
+        <article>
             {
                 isLoading ? <SkeletonPolarChart /> :
                     <Polar ref={(reference) => chartReference = reference} options={option} data={{
@@ -94,6 +94,6 @@ export const PolarChart = ({ labels, data, isLoading }: PolarChartProps) => {
             {
                 (!isLoading && !data?.length) && <div className="nav__lenght">You haven't listened spotify enought</div>
             }
-        </div>
+        </article>
     )
 }

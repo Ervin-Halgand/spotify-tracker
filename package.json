@@ -12,7 +12,6 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
     "axios": "^0.21.1",
-    "brunch": "^4.0.0",
     "chart.js": "^2.9.4",
     "react": "^17.0.1",
     "react-chartjs-2": "^2.11.1",
@@ -54,6 +53,6 @@
   "devDependencies": {
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
-    "terser-brunch": "^4.0.0"
+    "terser-webpack-plugin": "^5.1.1"
   }
 }

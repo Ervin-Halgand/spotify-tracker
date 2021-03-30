@@ -7,7 +7,6 @@ import { Header } from "../../components/Header/Header";
 import './style.css'
 
 export const Login: FunctionComponent = () => {
-    console.log(navigator);
     const currentUser = useSelector((state: any) => state.userLogin)
     const access_token: string = window.location.href?.split("=")[1]?.split("&")[0];
     const refresh_token: string = window.location.href?.split("=")[4]?.split('&')[0];

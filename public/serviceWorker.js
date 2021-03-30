@@ -9,7 +9,7 @@ this.addEventListener("install", (event) => {
                 '/static/js/bundle.js',
                 '/index.html',
                 '/login',
-                '/', 
+                '/',
             ])
         })
     )
@@ -17,12 +17,15 @@ this.addEventListener("install", (event) => {
 
 this.addEventListener("fetch", (event) => {
     if (!navigator.onLine)
-        event.respondWith(
-            caches.match(event.request).then((res) => {
-                if (res)
-                    return res
-                let requesturl = event.request.clone();
-                fetch(requesturl);
-            })
-        )
+        event.respondWith(async function () {
+            try {
+                var res = await fetch(event.request);
+                var cache = await caches.open('cache');
+                cache.put(event.request.url, res.clone());
+                return res;
+            }
+            catch (error) {
+                return caches.match(event.request);
+            }
+        }());
 })

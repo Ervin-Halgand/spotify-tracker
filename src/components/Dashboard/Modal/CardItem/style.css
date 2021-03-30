@@ -6,6 +6,7 @@
     border-radius: 5px;
     box-shadow: var(--boxShadow);
     transition: transform .5s ease;
+    padding: 10px;
 }
 
 .card_item:hover {

@@ -10,6 +10,7 @@ this.addEventListener("install", (event) => {
                 '/static/js/vendors~main.chunk.js',
                 '/static/js/2.5fc82ada.chunk.js',
                 '/static/js/main.3cbb61c5.chunk.js',
+                "/static/js/main.0ac601ea.chunk.js",
                 '/index.html',
                 '/login',
                 '/',

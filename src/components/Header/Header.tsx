@@ -18,7 +18,7 @@ export const Header = ({ user, isLoading }: HeaderProps) => {
     return (
         <div className="header">
             <div className="header__info">
-                <img width="88" height="88" className={`header__info__logo ${path.pathname !== '/' ? 'header__info__logo__animation' : ''}`} src={`${process.env.PUBLIC_URL}/images/spotify-logo.png`} alt="SpotifyLogo"></img>
+                <img width="87" height="87" className={`header__info__logo ${path.pathname !== '/' ? 'header__info__logo__animation' : ''}`} src={`${process.env.PUBLIC_URL}/images/spotify-logo.png`} alt="SpotifyLogo"></img>
                 <h1 className={`header__info__title ${path.pathname !== '/' ? 'header__info__title__animation' : ''}`}>Spotify Tracker</h1>
                 {path.pathname === '/' && <ToggleButton checkboxHandler={setTheme} isDarkTheme={darkTheme} />}
             </div>
@@ -30,7 +30,7 @@ export const Header = ({ user, isLoading }: HeaderProps) => {
                 if (isLoading)
                     return <SkeletonHeader />
                 return <div className="header__identity">
-                    <img width="44" height="44" className="header__identity__avatar" src={user?.images[0].url} alt="avatar"></img>
+                    <img width="48" height="48" className="header__identity__avatar" src={user?.images[0].url} alt="avatar"></img>
                     <div className="header__identity__contact">
                         <span className="header__identity__contact__name">{user?.display_name}</span>
                         <span className="header__identity_contact__follower">Follower : {user?.followers.total}</span>

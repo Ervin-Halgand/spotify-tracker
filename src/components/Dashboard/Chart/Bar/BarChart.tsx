@@ -45,7 +45,7 @@ export const BarChart = ({ labels, data, isLoading }: PolarChartProps) => {
         // eslint-disable-next-line
     }, [currentUser.isDarkTheme])
     return (
-        <article>
+        <article style={{flex: '1'}}>
             {
                 isLoading ? <SkeletonBarChart /> :
                     <Bar
@@ -58,7 +58,8 @@ export const BarChart = ({ labels, data, isLoading }: PolarChartProps) => {
                                 data: data
                             }]
                         }}
-                        
+                        width={100}
+                        height={340}
                         options={option}
                     />
             }

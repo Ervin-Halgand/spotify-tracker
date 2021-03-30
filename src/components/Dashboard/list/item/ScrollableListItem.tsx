@@ -10,7 +10,7 @@ export const ScrollableListItem = ({ image, name, subName }: ScrollableListItemP
     return (
         <li>
             <div className="list__item">
-                <img className="list__item__img" width="59" height="59" src={image} alt={`album ${name}`} />
+                <img className="list__item__img" width="64" height="64" src={image} alt={`album ${name}`} />
                 <div className="list__item__information">
                     <span className="list__item__information__name">{name}</span>
                     {subName && <span className="list__item__information__subname">{subName}</span>}

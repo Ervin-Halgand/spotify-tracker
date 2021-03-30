@@ -36,9 +36,8 @@ export const getRecommandationBuilder = (data: any, access_token: string) => {
       setRecommandationModal(true);
     })
     .catch((err) => {
-      if (err.message === "Network Error") {
+      if (err.message === "Network Error")
         notification("warning", "Connect to internet to see recommandation");
-      }
       console.error(err);
     })
     .finally(() => setRecommandationLoading(false));

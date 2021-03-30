@@ -60,7 +60,7 @@ export const RadarChart = ({ labels, data, isLoading }: RadarChartProps) => {
         // eslint-disable-next-line
     }, [currentUser.isDarkTheme])
     return (
-        <article>
+        <article style={{flex: '1'}}>
             {isLoading ? <SkeletonRadarChart /> : <Radar ref={(reference) => chartReference = reference} options={option} data={{
                 labels: labels,
                 hidden: true,

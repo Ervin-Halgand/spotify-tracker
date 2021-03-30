@@ -41,7 +41,7 @@ export const BarChartManager = ({ spotifyData, title }: any) => {
     }, [selectData, spotifyData.topTrack.recent.isLoading, spotifyData.topTrack.ever.isLoading])
 
     return (
-        <div>
+        <div style={{display: 'flex', flexDirection:'column'}}>
             <div className="chartHeader">
                 <span className="data__card__header__title">{title}</span>
                 <Select data={['Recent', 'Ever']} onChange={setSelectData} />

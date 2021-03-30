@@ -37,6 +37,7 @@ const getUserAndCheckToken = async (
   history: any
 ) => {
   let errorHappened = false;
+  let token = "";
   await spotifyGetUserProfile(access_token)
     .then((res) => {
       setUser(res.data);
@@ -58,8 +59,16 @@ const getUserAndCheckToken = async (
         }
         await spotifyRefreshToken(refresh_token)
           .then(async (res) => {
-            access_token = setToken(res.data.access_token);
-            await spotifyGetUserProfile(access_token)
+            token = setToken(res.data.access_token);
+            if (res.data?.error) {
+              clearStore();
+              notification("error", "Please loggin again", () =>
+                history.replace("/login")
+              );
+              errorHappened = true;
+              return;
+            }
+            await spotifyGetUserProfile(token)
               .then((res) => {
                 setUser(res.data);
               })
@@ -80,7 +89,7 @@ const getUserAndCheckToken = async (
         userIsLoading(false);
       }
     });
-  return errorHappened;
+  return { errorHappened: errorHappened, token: token };
 };
 
 export const fillSpotifyData = async (
@@ -88,10 +97,13 @@ export const fillSpotifyData = async (
   refresh_token: string,
   history: any
 ) => {
-  if (
-    (await getUserAndCheckToken(access_token, refresh_token, history)) === true
-  )
-    return;
+  const handler = await getUserAndCheckToken(
+    access_token,
+    refresh_token,
+    history
+  );
+  if (handler.errorHappened === true) return;
+  if (handler.token.length) access_token = handler.token;
   spotifyGetFollowingArtist(access_token, 50)
     .then((res) => {
       setFollowingArtist(res.data.artists.items);

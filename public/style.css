@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Baloo 2";
-    src: url("../font/Baloo2-Regular.ttf") format("truetype");
+    src: local("Baloo2 Regular"), local("Baloo2-Regular") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: "Baloo 2";
-    src: url("./font/Baloo2-Medium.ttf") format("truetype");
+    src: local("Baloo2 Medium"), local("Baloo2-Medium") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: "Baloo 2";
-    src: url("./font/Baloo2-SemiBold.ttf") format("truetype");
+    src: local("Baloo2 SemiBold"), local("Baloo2-SemiBold") format("truetype");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
     font-family: "Baloo 2";
-    src: url("./font/Baloo2-Bold.ttf") format("truetype");
+    src: local("Baloo2 Bold"), local("Baloo2-Bold") format("truetype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
     font-family: "Baloo 2";
-    src: url("./font/Baloo2-ExtraBold.ttf") format("truetype");
+    src: local("Baloo2 ExtraBold"), local("Baloo2-ExtraBold") format("truetype");
     font-weight: 800;
     font-style: normal;
     font-display: swap;

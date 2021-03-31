@@ -30,7 +30,7 @@ export const Header = ({ user, isLoading }: HeaderProps) => {
                 if (isLoading)
                     return <SkeletonHeader />
                 return <div className="header__identity">
-                    <img width="48" height="48" className="header__identity__avatar" src={user?.images[0].url} alt="avatar"></img>
+                    <img width="48" height="48" className="header__identity__avatar" src={user?.images[0]?.url} alt="avatar"></img>
                     <div className="header__identity__contact">
                         <span className="header__identity__contact__name">{user?.display_name}</span>
                         <span className="header__identity_contact__follower">Follower : {user?.followers.total}</span>

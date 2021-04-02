@@ -133,7 +133,7 @@
     position: relative;
     grid-auto-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 1px;
 }
 
 .layout_modal_button {

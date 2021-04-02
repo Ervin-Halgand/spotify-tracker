@@ -24,7 +24,7 @@ export const Header = ({ user, isLoading }: HeaderProps) => {
             </div>
             {(() => {
                 if (!user)
-                    return <div className="header__login"><a href={"http://localhost:8080/login"}><button className="header__login__button">
+                    return <div className="header__login"><a href={"https://spotify-redirect-api-personnal.herokuapp.com/login"}><button className="header__login__button">
                         <img width="30" height="30" className="header__login__button__logo" src={`${process.env.PUBLIC_URL}/images/spotify-logo.png`} alt="SpotifyLogo"></img>
                         Login with Spotify</button></a></div>
                 if (isLoading)

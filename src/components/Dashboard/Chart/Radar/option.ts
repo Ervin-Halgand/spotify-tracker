@@ -1,6 +1,8 @@
 export const option = {
   responsive: true,
   maintainAspectRatio: false,
+  tooltips: { enabled: false },
+  hover: { mode: null },
   legend: {
     display: false,
   },
@@ -10,7 +12,8 @@ export const option = {
       maxTicksLimit: 10,
       showLabelBackdrop: false,
       fontColor: "#000000",
-      fontSize: 14
+      fontSize: 14,
+      display: false,
     },
     pointLabels: {
       fontColor: "#000000",

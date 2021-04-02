@@ -19,7 +19,7 @@ export const ScrollableList = ({ listItem, type, isLoading }: ScrollableListProp
                 return loaderComponents
             })() :
                 <ul>
-                    {type === 'Artist' && listItem?.map((item: any, i: number) => <ScrollableListItem key={i} image={item.images[item.images.length - 1]} name={item.name} subName={`Popularity: ${item.popularity}`} />)}
+                    {type === 'Artist' && listItem?.map((item: any, i: number) => <ScrollableListItem key={i} image={item.images[item.images.length - 1]} name={item.name} subName={`Popularity: ${item.popularity}%`} />)}
                     {type === 'Album' && listItem?.map((item: any, i: number) => <ScrollableListItem key={i} image={item.album.images[item.album.images.length - 1]} name={item.album.name} subName={item.album.release_date} />)}
                     {!listItem.length && <div className="nav__lenght">You haven't listened spotify enought</div>}
                 </ul>}

@@ -3,13 +3,13 @@ export const option = {
   maintainAspectRatio: false,
   scales: {
     xAxes: [{ ticks: { fontColor: "#000000", fontSize: 14 } }],
-    yAxes: [{ ticks: { fontColor: "#000000" } }],
+    yAxes: [{ ticks: { fontColor: "#000000",display: false } }],
   },
   legend: { display: false },
   tooltips: {
     callbacks: {
       label: (tooltipItem: any) =>
-        `${tooltipItem.yLabel}: ${tooltipItem.xLabel}`,
+        `${tooltipItem.xLabel}`,
       title: () => null,
     },
   },

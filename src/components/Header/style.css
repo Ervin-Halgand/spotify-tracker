@@ -55,7 +55,6 @@
     transition: color var(--transition__duration) ease-in-out;
     font-size: 24px;
     font-weight: 500;
-    margin-bottom: -10px;
 }
 
 .header__identity_contact__follower {

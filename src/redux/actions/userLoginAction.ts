@@ -18,7 +18,6 @@ export const refreshRefreshToken = (history: any) => {
   return async (dispatch: any, getState: any): Promise<any> => {
     await spotifyRefreshToken(getState().userLogin.refresh_token)
       .then((res) => {
-        console.log(res);
         if (res.data?.error) {
           clearStore();
           notification("error", "Please loggin again", () =>
@@ -45,7 +44,6 @@ export const setRefreshToken = (refresh_token: string): void => {
 
 export const clearStore = (): void => {
   localStorage.clear();
-  console.log('clear')
   store.dispatch({ type: CLEAR_STORE });
 };
 

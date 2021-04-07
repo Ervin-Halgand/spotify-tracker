@@ -5,7 +5,7 @@ import {
   SET_RECOMMANDATION_LOADING,
   SET_RECOMMANDATION_MODAL,
 } from "../constants/spotifyConstants";
-import { notification, refreshRefreshToken } from "./userLoginAction";
+import { notification } from "./userLoginAction";
 
 export const setRecommandation = (
   artists_seed: any,
@@ -31,7 +31,6 @@ export const setRecommandation = (
           notification("warning", "Connect to internet to see recommandation");
         else {
           dispatch(setRecommandationHasError(true));
-/*           dispatch(refreshRefreshToken()); */
           notification("error", "please load recommandation again");
         }
       })

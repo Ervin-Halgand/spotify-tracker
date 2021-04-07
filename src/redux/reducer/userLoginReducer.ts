@@ -8,18 +8,16 @@ import {
 } from "../constants/spotifyConstants";
 import { toast, Slide } from "react-toastify";
 
-export interface SpotifyState {
+export interface userLogin {
   access_token: string | null;
   refresh_token: string | null;
   isDarkTheme: any;
 }
 
-let initialState: SpotifyState = {
+let initialState: userLogin = {
   access_token: localStorage.getItem("access_token"),
   refresh_token: localStorage.getItem("refresh_token"),
-  isDarkTheme: localStorage.getItem("isDarkTheme") === "true"
-    ? true
-    : false,
+  isDarkTheme: localStorage.getItem("isDarkTheme") === "true" ? true : false,
 };
 
 const notificationType = (
@@ -33,6 +31,7 @@ const notificationType = (
       toast.error(message, {
         position: "top-right",
         autoClose: duration || 2000,
+        pauseOnHover: false,
         transition: Slide,
         onClose: callback,
       });
@@ -41,6 +40,7 @@ const notificationType = (
       toast.success(message, {
         position: "top-right",
         autoClose: duration || 2000,
+        pauseOnHover: false,
         transition: Slide,
         onClose: callback,
       });
@@ -50,6 +50,7 @@ const notificationType = (
       toast.warn(message, {
         position: "top-right",
         autoClose: duration || 2000,
+        pauseOnHover: false,
         transition: Slide,
         onClose: callback,
       });
@@ -59,8 +60,8 @@ const notificationType = (
   }
 };
 
-export const userReducer = (
-  state: SpotifyState = initialState,
+export const userLoginReducer = (
+  state: userLogin = initialState,
   action: AnyAction
 ) => {
   switch (action.type) {
@@ -69,7 +70,10 @@ export const userReducer = (
     case SET_REFRESH_TOKEN:
       return { ...state, refresh_token: action.refresh_token };
     case CLEAR_STORE:
-      return { state: initialState };
+      state.access_token = "";
+      state.refresh_token = "";
+      state.isDarkTheme = false;
+      return { ...state };
     case NOTIFICATION:
       notificationType(
         action.notificationType,

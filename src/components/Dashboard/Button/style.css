@@ -1,0 +1,12 @@
+.button__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a31515;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    font-weight: 600;
+}

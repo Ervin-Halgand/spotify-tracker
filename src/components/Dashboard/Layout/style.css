@@ -93,6 +93,10 @@
 }
 
 .layout_recommandation_button {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
     background: var(--card-item-bg-color);
     border-radius: 10px;
     border: var(--border);
@@ -102,6 +106,11 @@
     transition: background var(--transition__duration) ease-in-out, color var(--transition__duration) ease-in-out;
     color: var(--text__color);
     font-weight: 800;
+}
+
+.layout_recommandation_button > img {
+    position: absolute;
+    left: 30px;
 }
 
 .recommandation_and_scrollable_list {

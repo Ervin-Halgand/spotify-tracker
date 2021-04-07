@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
 import { useHistory } from 'react-router-dom';
 import logoLogout from '../../../assets/images/logout.png';
-import { clearStore } from '../../../redux/actions/spotifyAction';
+import { clearStore } from '../../../redux/actions/userLoginAction';
 import './style.css'
 import '../style.css'
 

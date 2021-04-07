@@ -68,7 +68,7 @@ export const spotifyGetTracks = (
 export const spotifyRefreshToken = (
   refresh_token: string | null
 ): Promise<any> =>
-  axios.post("http://localhost:8080/refresh", null, {
+  axios.post("https://spotify-redirect-api-personnal.herokuapp.com/refresh", null, {
     headers: { "Content-Type": "text/plain" },
     params: {
       refresh_token: refresh_token,

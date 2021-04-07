@@ -1,12 +1,10 @@
-import {
-  notification,
-  setRecommandation,
-  setRecommandationLoading,
-  setRecommandationModal,
-} from "../../redux/actions/spotifyAction";
-import { spotifyGetRecommandation } from "./Axios";
+import { setRecommandation } from "../../redux/actions/recommandationAction";
+import { notification } from "../../redux/actions/userLoginAction";
 
-export const getRecommandationBuilder = (data: any, access_token: string) => {
+export const getRecommandationBuilder = (
+  dispatch: any,
+  data: any,
+) => {
   let tracks_seed: any[] = [];
   let artists_seed: any[] = [];
   let genre: any[] = [];
@@ -29,16 +27,5 @@ export const getRecommandationBuilder = (data: any, access_token: string) => {
     );
     return;
   }
-  setRecommandationLoading(true);
-  spotifyGetRecommandation(access_token, artists_seed, genre, tracks_seed[0])
-    .then((res) => {
-      setRecommandation(res.data.tracks);
-      setRecommandationModal(true);
-    })
-    .catch((err) => {
-      if (err.message === "Network Error")
-        notification("warning", "Connect to internet to see recommandation");
-      console.error(err);
-    })
-    .finally(() => setRecommandationLoading(false));
+  dispatch(setRecommandation(artists_seed, genre, tracks_seed[0]));
 };

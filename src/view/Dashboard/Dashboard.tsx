@@ -1,29 +1,44 @@
 import { FunctionComponent, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { spotifyData } from '../../redux/reducer/spotifyReducer'
 import { Header } from '../../components/Header/Header';
 import { DashboardLayout } from '../../components/Dashboard/Layout/DashboardLayout';
 import './style.css'
-import { fillSpotifyData } from '../../helpers/axios/InitializationDashboardData';
+import { setUser } from "../../redux/actions/userInfoAction";
+import { setFollowingArtist, setSavedAlbum } from "../../redux/actions/followingAction";
+import { setTopArtistEver, setTopArtistRecent } from "../../redux/actions/topArtistAction";
+import { setTopTrackEver, setTopTrackRecent } from "../../redux/actions/topTrackAction";
+import { refreshRefreshToken } from "../../redux/actions/userLoginAction";
 
 export const Dashboard: FunctionComponent = () => {
     const currentUser = useSelector((state: any) => state.userLogin);
-    const spotifyData: spotifyData = useSelector((state: any) => state.spotifyData);
-    const history = useHistory()
+    const spotifyData = useSelector((state: any) => state.spotifyData);
+    const history = useHistory();
+    const dispatch = useDispatch();
     useEffect(() => {
         if (!currentUser.access_token) {
             history.replace('/login');
             return;
         }
-        fillSpotifyData(currentUser.access_token, currentUser.refresh_token, history);
+        const initDispacht = async () => {
+            await dispatch(refreshRefreshToken(history));
+            dispatch(setUser());
+            dispatch(setFollowingArtist());
+            dispatch(setSavedAlbum());
+            dispatch(setTopArtistRecent());
+            dispatch(setTopArtistEver());
+            dispatch(setTopTrackRecent());
+            dispatch(setTopTrackEver());
+        }
+        initDispacht();
+
     }
         // eslint-disable-next-line
         , []);
     return (
-        (spotifyData.user) ?
+        (spotifyData.userInfo) ?
             <div className="dashboard__root">
-                <Header user={spotifyData.user.info} isLoading={spotifyData.user.isLoading} />
+                <Header user={spotifyData.userInfo.info} isLoading={spotifyData.userInfo.isLoading} />
                 <DashboardLayout spotifyData={spotifyData} currentUser={currentUser} />
             </div> : <div></div>
     )

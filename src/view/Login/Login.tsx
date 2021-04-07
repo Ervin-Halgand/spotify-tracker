@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { setToken, setRefreshToken, notification } from '../../redux/actions/spotifyAction'
+import { setToken, setRefreshToken, notification } from '../../redux/actions/userLoginAction'
 import { useHistory, useLocation } from "react-router-dom";
 import board from '../../assets/images/board.png'
 import { Header } from "../../components/Header/Header";

@@ -21,6 +21,7 @@ function App() {
           position="top-right"
           autoClose={2000}
           transition={Slide}
+          pauseOnHover={false}
         />
         <Switch>
           <Route path="/login">

@@ -1,3 +1,44 @@
+
+@font-face {
+    font-family: "Baloo 2";
+    src: local("Baloo2 Regular"), local("Baloo2-Regular"), url("./assets/fonts/Baloo2-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Baloo 2";
+    src: local("Baloo2 Medium"), local("Baloo2-Medium"), url("./assets/fonts/Baloo2-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Baloo 2";
+    src: local("Baloo2 SemiBold"), local("Baloo2-SemiBold"), url("./assets/fonts/Baloo2-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Baloo 2";
+    src: local("Baloo2 Bold"), local("Baloo2-Bold"), url("./assets/fonts/Baloo2-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Baloo 2";
+    src: local("Baloo2 ExtraBold"), local("Baloo2-ExtraBold"), url("./assets/fonts/Baloo2-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
